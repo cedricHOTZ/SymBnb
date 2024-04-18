@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes réservations
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1>Mes reservations</h1>
+		<div class="alert alert-info mt-5">
+			<p>Retrouvez ci-dessous toutes vos reservations passées et à venir</p>
+		</div>
+
+		{% for reservation in app.user.reservations %}
+
+			<div class="row mt-5">
+
+				<div class="col-4 ">
+					<img src="{{reservation.annonce.coverImage}}" class="img-fluid">
+					<div class="mt-3">
+						{% set commentaire = reservation.annonce.commentaireauteur(app.user) %}
+
+
+						{% if commentaire is not null %}
+							<strong>Note donnée :
+							</strong>
+							{% include 'partials/note.html.twig' with {'note':commentaire.note} %}
+						{% else %}
+							Vous n'avez pas encore donné de note.
+							<a href="{{path('reservation_show',{'id':reservation.id}) }}" class="btn btn-link">Je donne mon avis !</a>
+
+						{% endif %}
+
+
+					</div>
+
+				</div>
+				<div class="col-8">
+
+					<h4>{{reservation.annonce.title}}</h4>
+					<p>
+
+						Réservation
+						<strong>n°{{reservation.annonce.id}}</strong><br>
+						du
+						{{reservation.startDate|date('d/m/y')}}
+
+						au
+						{{reservation.endDate|date('d/m/y')}}<br><span class="badge text-bg-primary ">{{reservation.annonce.price}}€</span>
+
+
+					</p>
+
+					<a href="{{path('reservation_show',{'id':reservation.id}) }}" class="btn btn-info">Plus d'information</a>
+
+
+				</div>
+
+			</div>
+		{% endfor %}
+
+
+	</div>
+
+
+{% endblock %}

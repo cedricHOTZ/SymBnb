@@ -1,0 +1,131 @@
+
+@import "~bootstrap/scss/bootstrap";
+
+div.container{
+margin-top: 20px;
+}
+
+div.ad-title{
+padding: 2em;
+background-size: cover;
+background-position: center center;
+}
+
+div.ad-title h1 , div.ad-title p {
+color: white;
+text-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+}
+
+div.carousel-caption{
+text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+/* hombrage des texte sur le carousel */
+
+div.carousel-caption{
+text-shadow: 3px3px3px rgba(0, 0, 0, 0.5)s;
+}
+img.d-block.w-100.img-carousel{
+height: 500px;
+object-fit: cover;
+width: auto;
+margin-top: 20px;
+}
+
+.avatar-mini{
+
+max-width: 34px;
+max-height: 34px;
+}
+
+.fa-regular:before {
+    
+    font-family: "Font Awesome 5 Free";
+    font-weight: 400;
+}
+.rating i {
+color:gold !important;
+}
+
+.fa-solid:before {
+    color: gold;
+   
+    font-family: "Font Awesome 5 Free";
+    font-weight: 400;
+}
+.imgreservation{
+width: 100% !important;
+height: 20em;
+aspect-ratio: 1/1;
+object-fit: cover;
+}
+
+
+/* slider pas d'accueil */
+/* .slider img {
+     height: 600px;
+     /* Remplacez 200px par la hauteur souhaitée */
+     /* width: 100%; */
+     /* Ajustez la largeur selon vos besoins */
+     /* object-fit: cover; */
+     /* Assurez-vous que l'image conserve ses proportions tout en remplissant le conteneur */
+ /* } */
+/* Adapter la taille des images au conteneur */
+.slider img {
+    width: 100%;
+    /* Réinitialiser la largeur de l'image à sa taille d'origine */
+   
+    /* La largeur de l'image ne dépassera pas la largeur du conteneur */
+    height: 600px;
+    /* Hauteur fixe pour les images */
+    object-fit: cover;
+    /* Redimensionner l'image pour qu'elle remplisse le conteneur tout en conservant son aspect ratio */
+}
+
+.slick-prev,
+.slick-next {
+    font-size: 34px;
+    color: white;
+    width: 60px;
+        /* Largeur des flèches */
+        height: 60px;
+        /* Hauteur des flèches */
+    border: none;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 1;
+}
+.slick-prev,
+.slick-next {
+    visibility: visible !important;
+}
+.slick-prev {
+    left: 10px;
+}
+
+.slick-next {
+    right: 10px;
+}
+.slick-prev:before,
+.slick-next:before{
+font-size: 40px !important;
+}
+
+.slick-list.draggable{
+height: auto !important;
+}
+/*jumbotron*/
+.bg-overlay {
+    content: '';
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Ajustez l'opacité selon vos préférences */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    /* Assurez-vous que l'overlay est derrière le texte et le bouton */
+}

@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Edition l'annonce :
+	{{annonces.title}}
+{% endblock %}
+
+{% form_theme form _self %}
+
+{% block body %}
+	<div class="container">
+
+		<h1>Modifier l'annonce :
+			{{annonces.title}}</h1>
+
+
+		{{ form_start(form) }}
+		{{ form_widget(form) }}
+		<button type="submit" class=" btn btn-primary mt-4">Enregistrer</button>
+		{{ form_end(form) }}
+
+	</div>
+
+
+{% endblock %}
+
+{% block _annonce_images_widget %}
+	<p>Ici vous pouvez afficher vos images</p>
+
+	{{ form_widget(form) }}
+	<inpout type="hidden" id="widgets-counter" value="0">
+		<div class="form-group">
+			<button class="btn btn-primary mt-4" id="add-image">
+				Ajouter une image</button>
+
+		</div>
+	{% endblock %}
+
+	{% block _annonce_images_entry_row %}
+		{{ form_widget(form) }}
+	{% endblock %}
+
+	{% block _annonce_images_entry_widget %}
+		<div class="form-group" id="block_{{id}}">
+			<div class="row">
+				<div class="col-10">
+					<div class="row mt-4">
+						<div class="col">
+							{{ form_widget(form.url) }}
+							{{ form_errors(form.url) }}
+						</div>
+						<div class="col">
+							{{ form_widget(form.title) }}
+							{{ form_errors(form.title) }}
+						</div>
+
+					</div>
+				</div>
+				<div class="col-2">
+
+					<button type="submit" data-action="delete" data-target="#block_{{id}}" class=" btn btn-danger mt-4">X</button>
+				</div>
+			</div>
+
+		</div>
+
+	{% endblock %}
+
+	{% block javascripts %}
+		<script>
+			$(document).ready(function () {
+$('#add-image').click(function () {
+
+const index = $('#widgets-counter').val();
+const tmpl = $('#annonce_images').data('prototype').replace(/__name__/g, index);
+$('#annonce_images').append(tmpl);
+$('#widgets-counter').val(index + 1);
+
+
+});
+
+function handleDeleteButtons() {
+
+$('button[data-action="delete"]').click(function () {
+const target = this.dataset.target;
+$(target).remove();
+});
+}
+function updateCounter() {
+const count = + $('#annonce_images div.form-group').lenght;
+
+$('#widgets-counter').val(count);
+}
+updateCounter();
+handleDeleteButtons();
+
+});
+		</script>
+
+	{% endblock %}

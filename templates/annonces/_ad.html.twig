@@ -1,0 +1,45 @@
+{% set url = path('app_annonce', {'slug': annonce.slug}) %}
+
+<div class="col-md-4">
+	<div class="card bg-light mb-3">
+		<div class="card-header text-center">
+			{{ annonce.rooms }}
+			chambres
+			<strong>{{annonce.price|number_format(2, ',', ' ', '.') }}
+
+
+				€/nuit</strong>
+
+
+			<br>
+			{% if annonce.commentaires|length > 0 %}
+				{% include 'partials/note.html.twig' with {'note':annonce.noteglobal} %}
+
+			{% else %}
+				<small>
+					Pas encore noté</small>
+			{% endif %}
+		</div>
+		<img src="{{annonce.coverImage}}" alt="{{annonce.title}}" style="height: 200px;width: 100%; display: block ;object-fit:cover ;aspect-ratio:1/1">
+
+		<div class="card-body">
+			<h4 class="card-title">{{annonce.title}}</h4>
+			<p class="card-text">{{annonce.content|slice(0, 180) ~ ' ...' }}</p>
+
+			<a href="{{ url }}" class="btn btn-secondary">En savoir plus</a>
+			{% if app.user  and app.user == annonce.auteur %}
+				<a href="{{path('app_annonce_edit',{'slug':annonce.slug})}}" class="btn btn-secondary">
+					Modifier l'annonce
+
+				</a>
+				<a href="{{path('app_annonce_delete',{'slug':annonce.slug})}}" onclick="return confirm('Êtes vous sur de vouloir supprimer l'annonce : {{annonce.title}}" class="mt-2 btn btn-danger">
+					Supprimer l'annonce
+
+				</a>
+
+			{% endif %}
+
+
+		</div>
+	</div>
+</div>
