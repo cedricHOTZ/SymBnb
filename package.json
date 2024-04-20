@@ -20,9 +20,9 @@
     "@popperjs/core": "^2.11.8",
     "@symfony/stimulus-bridge": "^3.2.2",
     "@symfony/stimulus-bundle": "file:vendor/symfony/stimulus-bundle/assets",
+    "@symfony/ux-chartjs": "file:vendor/symfony/ux-chartjs/assets",
     "bootstrap": "^5.3.3",
-     "@symfony/ux-chartjs": "file:vendor/symfony/ux-chartjs/assets",
-   "chart.js": "^3.4.1 || ^4.0",
+    "chart.js": "^3.4.1 || ^4.0",
     "core-js": "^3.37.0",
     "jquery": "^3.7.1",
     "postcss": "^8.4.38",
@@ -32,10 +32,10 @@
     "tailwindcss": "^3.4.3",
     "webpack-cli": "^5.1.4"
   },
-  
   "devDependencies": {
     "@symfony/webpack-encore": "^4.6.1",
     "autoprefixer": "^10.4.19",
+    "notyf": "^3.10.0",
     "postcss-loader": "^7.3.4",
     "sass": "^1.75.0",
     "sass-loader": "^14.2.1",

@@ -67,7 +67,7 @@ Encore
     .enableVersioning(false)
 
     // enables hashed filenames (e.g. app.abc123.css)
-    //.enableVersioning(Encore.isProduction())
+    .enableVersioning(Encore.isProduction())
 
     .configureBabel((config) => {
         config.plugins.push('@babel/plugin-transform-class-properties');
