@@ -20,7 +20,16 @@ class RegistrationController extends AbstractController
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
+
+
+
+
         if ($form->isSubmitted() && $form->isValid()) {
+            // Vérifiez si le champ picture est vide
+            if (empty($user->getPicture())) {
+                // Si oui, attribuez l'avatar par défaut
+                $user->setPicture('/avatars/avatar_default.png');
+            }
             // encode the plain password
             $user->setPassword(
                 $userPasswordHasher->hashPassword(

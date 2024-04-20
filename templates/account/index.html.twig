@@ -1,10 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mon compte
+{% block title %}Hello AccountController!
 {% endblock %}
 
 {% block body %}
-
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
 
 	<div class="container">
 		<div class="row align-item-center">
@@ -20,20 +31,6 @@
 
 				<h1>{{user.fistName}}
 					{{user.lastName}}</h1>
-				{# Verifie si l'utilisateur connecté est identique au compte utilisateur  #}
-
-				{% if user is same as(app.user) %}
-
-
-					<div
-						class="mt-3">
-						{# <a href="{{ path('app_profile') }}" class="btn btn-primary">Modifier mes informations</a> #}
-						{# <a href="{{ path('app_maj-mot-de-passe') }}" class="btn btn-primary">Modifier mon mot de passe</a> #}
-
-
-					</div>
-				{% endif %}
-
 
 			</div>
 		</div>
@@ -62,4 +59,5 @@
 			</div>
 		{% endif %}
 	</div>
+
 {% endblock %}
